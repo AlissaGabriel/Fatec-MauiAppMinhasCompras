@@ -19,19 +19,22 @@
 
     <!-- Tag body do XAML -->
     <ContentPage.Content>
-        <VerticalStackLayout>
+        <VerticalStackLayout Padding="20" Spacing="15">
             <SearchBar x:Name="txt_search" Placeholder="Busca de Produtos" TextChanged="txt_search_TextChanged" />
 
-            <Border Margin="10" Padding="5" StrokeShape="RoundRectangle 10">
+            <Label Text="Toque no item para editar e use 'Remover' para excluir" FontAttributes="Bold" TextColor="#666"
+                   HorizontalTextAlignment="Center"/>
+            
+            <Border Margin="10" Padding="10" StrokeShape="RoundRectangle 10">
                 <ListView x:Name="lst_produtos" IsPullToRefreshEnabled="True" 
                           Refreshing="lst_produtos_Refreshing" ItemSelected="lst_produtos_ItemSelected">
                     <ListView.Header>
-                        <Grid ColumnDefinitions="30, 100, 80, 50, 90">
-                            <Label Grid.Column="0" Text="Id" FontAttributes="Bold"/>
-                            <Label Grid.Column="1" Text="Descrição"/>
-                            <Label Grid.Column="2" Text="Preço"/>
-                            <Label Grid.Column="3" Text="Qntd"/>
-                            <Label Grid.Column="4" Text="Total"/>
+                        <Grid Padding="8" ColumnDefinitions="30, 100, 80, 50, 90">
+                            <Label Grid.Column="0" Text="Id" FontAttributes="Bold" TextColor="#555"/>
+                            <Label Grid.Column="1" Text="Descrição" FontAttributes="Bold" TextColor="#555"/>
+                            <Label Grid.Column="2" Text="Preço" FontAttributes="Bold" TextColor="#555"/>
+                            <Label Grid.Column="3" Text="Qntd" FontAttributes="Bold" TextColor="#555"/>
+                            <Label Grid.Column="4" Text="Total" FontAttributes="Bold" TextColor="#555"/>
                         </Grid>
                     </ListView.Header>
                     <ListView.ItemTemplate>
@@ -40,7 +43,7 @@
                                 <ViewCell.ContextActions>
                                     <MenuItem Text="Remover" Clicked="MenuItem_Clicked_Remover"/>
                                 </ViewCell.ContextActions>
-                                <Grid ColumnDefinitions="30, 100, 80, 50, 90">
+                                <Grid Padding="5" ColumnDefinitions="30, 100, 80, 50, 90">
                                     <Label Grid.Column="0" Text="{Binding Id}"/>
                                     <Label Grid.Column="1" Text="{Binding Descricao}"/>
                                     <Label Grid.Column="2" Text="{Binding Preco}"/>
